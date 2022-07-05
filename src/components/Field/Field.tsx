@@ -50,8 +50,8 @@ const Field: React.FC<FieldProps> = ({
           labelProps={correctedLabelProps}
           labelText={label}
           errorMessageProps={errorMessageProps}
-          disabled={disabled}
           {...props}
+          disabled={disabled}
         />
       ) : (
         <FormikField
