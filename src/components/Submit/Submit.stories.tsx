@@ -62,6 +62,7 @@ WithLoading.args = {
 
 export const WithSpinner = Template.bind({});
 WithSpinner.args = {
+  withLoading: false,
   withSpinner: true,
 };
 
