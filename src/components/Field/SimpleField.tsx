@@ -42,7 +42,7 @@ const SimpleField: React.FC<SimpleFieldProps> = ({
     />
     {props.type === 'checkbox' && (
       <Label
-        className={cn(labelProps.className, {
+        className={cn('ms-2', labelProps.className, {
           required: props.required,
         })}
         {...labelProps}
