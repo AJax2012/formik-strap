@@ -18,6 +18,7 @@ type SimpleFieldProps = Partial<FieldInputProps<string | number>> &
   };
 
 const SimpleField: React.FC<SimpleFieldProps> = ({
+  className,
   errorMessageProps,
   labelProps,
   labelText,
@@ -35,10 +36,9 @@ const SimpleField: React.FC<SimpleFieldProps> = ({
       </Label>
     )}
     <FormikField
-      id={props.id}
       name={props.name}
       component={Input}
-      props={props}
+      props={{ className: cn('mb-3', className), ...props }}
     />
     {props.type === 'checkbox' && (
       <Label
