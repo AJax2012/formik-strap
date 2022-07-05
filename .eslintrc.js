@@ -25,6 +25,9 @@ module.exports = {
       typescript: {},
     },
   },
-  rules: {},
-  ignorePatterns: ['.eslintrc.js'],
+  rules: {
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+  },
+  ignorePatterns: ['.eslintrc.js', 'tsdx.config.js', 'dist'],
 };
