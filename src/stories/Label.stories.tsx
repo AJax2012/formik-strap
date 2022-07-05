@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Label from './Label';
+import Label from '../components/Label/Label';
 import 'bootstrap/dist/css/bootstrap.css';
 
 export default {

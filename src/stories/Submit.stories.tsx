@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Submit from './Submit';
+import Submit from '../components/Submit/Submit';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Form, Formik } from 'formik';
-import Field from '../Field';
+import Field from '../components/Field';
 
 export default {
   title: 'Submit',

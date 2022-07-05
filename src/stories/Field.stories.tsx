@@ -3,8 +3,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Form, Formik } from 'formik';
 import { Button, FormGroup, InputGroup } from 'reactstrap';
 import { v4 as uuid } from 'uuid';
-import Field from './Field';
-import Label from '../Label';
+import Field from '../components/Field/Field';
+import Label from '../components/Label';
 import 'bootstrap/dist/css/bootstrap.css';
 
 export default {
