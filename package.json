@@ -15,7 +15,7 @@
   "scripts": {
     "analyze": "size-limit --why",
     "build": "tsdx build",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o docs-build",
     "clean": "rm -rf dist",
     "lint": "eslint .",
     "prepare": "tsdx build",
