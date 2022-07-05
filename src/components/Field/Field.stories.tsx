@@ -121,6 +121,14 @@ Large.args = {
   bsSize: 'lg',
 };
 
+export const Small = Template.bind({});
+Small.args = {
+  labelProps: {
+    size: 'sm',
+  },
+  bsSize: 'sm',
+};
+
 export const Checkbox = Template.bind({});
 Checkbox.args = {
   labelText: 'Accept terms',
