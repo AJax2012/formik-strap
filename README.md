@@ -4,7 +4,7 @@ This library is intended to be an updated version of tools like formstrap, which
 
 ## Installation
 
-When I am able to create an NPM package for this, this is the installation steps necessary to import these classes into your project:
+To install the package:
 
 `npm install bootstrap reactstrap formik formik-strap`
 
