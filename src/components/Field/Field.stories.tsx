@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Form, Formik } from 'formik';
 import { Button, FormGroup, InputGroup } from 'reactstrap';
+import { v4 as uuid } from 'uuid';
 import Field from './Field';
 import Label from '../Label';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -68,7 +69,7 @@ const Template: ComponentStory<typeof Field> = ({ ...args }) => (
     initialValues={{ firstName: '' }}
     onSubmit={(values) => console.log(values)}
   >
-    <Field {...args} />
+    <Field id={uuid()} {...args} />
   </Formik>
 );
 
@@ -186,26 +187,33 @@ Range.args = {
   type: 'range',
 };
 
-export const Select: ComponentStory<typeof Field> = ({ ...args }) => {
-  return (
-    <Formik
-      initialValues={{ country: '' }}
-      onSubmit={(values) => console.log(values)}
-    >
-      <Field {...args} type="select" name="country">
-        <option>---</option>
-        <option value="USA">USA</option>
-        <option value="Canada">Canada</option>
-        <option value="Mexico">Mexico</option>
-      </Field>
-    </Formik>
-  );
-};
+export const Select: ComponentStory<typeof Field> = ({ ...args }) => (
+  <Formik
+    initialValues={{ country: '' }}
+    onSubmit={(values) => console.log(values)}
+  >
+    <Field type="select" name="country" {...args}>
+      <option>---</option>
+      <option value="USA">USA</option>
+      <option value="Canada">Canada</option>
+      <option value="Mexico">Mexico</option>
+    </Field>
+  </Formik>
+);
 
-export const SelectMultiple = Select.bind({});
-SelectMultiple.args = {
-  multiple: true,
-};
+export const SelectMultiple: ComponentStory<typeof Field> = ({ ...args }) => (
+  <Formik
+    initialValues={{ country: [] }}
+    onSubmit={(values) => console.log(values)}
+  >
+    <Field type="select" multiple name="country" {...args}>
+      <option>---</option>
+      <option value="USA">USA</option>
+      <option value="Canada">Canada</option>
+      <option value="Mexico">Mexico</option>
+    </Field>
+  </Formik>
+);
 
 export const SubmitWithLoading: ComponentStory<typeof Field> = ({
   ...args
