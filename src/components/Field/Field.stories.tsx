@@ -100,8 +100,8 @@ CustomId.args = {
   id: 'customId',
 };
 
-export const Hidden = Template.bind({});
-Hidden.args = {
+export const HiddenField = Template.bind({});
+HiddenField.args = {
   hidden: true,
 };
 
