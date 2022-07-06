@@ -12,16 +12,18 @@ import SimpleField from './SimpleField';
 type FieldProps = Partial<FieldInputProps<string | number>> &
   InputProps & {
     errorMessageProps?: ErrorMessageProps;
-    withTemplate?: boolean;
     labelProps?: LabelProps;
     labelText?: string;
+    removeBottomMargin?: boolean;
     withLoading?: boolean;
+    withTemplate?: boolean;
   };
 
 const Field: React.FC<FieldProps> = ({
   errorMessageProps,
   labelProps,
   labelText,
+  removeBottomMargin,
   withTemplate,
   withLoading,
   ...props
@@ -50,6 +52,7 @@ const Field: React.FC<FieldProps> = ({
           labelProps={correctedLabelProps}
           labelText={label}
           errorMessageProps={errorMessageProps}
+          removeBottomMargin={removeBottomMargin as boolean}
           {...props}
           disabled={disabled}
         />
@@ -67,9 +70,10 @@ const Field: React.FC<FieldProps> = ({
 };
 
 Field.defaultProps = {
+  disabled: false,
+  removeBottomMargin: false,
   withTemplate: true,
   withLoading: true,
-  disabled: false,
 };
 
 export default Field;

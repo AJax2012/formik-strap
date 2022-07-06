@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Form, Formik } from 'formik';
-import { Button, FormGroup, InputGroup } from 'reactstrap';
+import { Button, FormGroup, FormText, InputGroup } from 'reactstrap';
 import { v4 as uuid } from 'uuid';
 import Field from '../components/Field/Field';
 import Label from '../components/Label';
@@ -135,6 +135,41 @@ Checkbox.args = {
   type: 'checkbox',
 };
 
+export const Radio = Template.bind({});
+Radio.args = {
+  labelText: 'Accept terms',
+  type: 'radio',
+};
+
+export const MultipleRadio: ComponentStory<typeof Field> = () => (
+  <Formik
+    initialValues={{ choice: '' }}
+    onSubmit={(values) => console.log(values)}
+  >
+    <FormGroup tag="fieldset">
+      <legend>Radio Buttons</legend>
+      <FormGroup check>
+        <Field
+          id="choice1"
+          name="choice"
+          labelText="Option one"
+          value="1"
+          type="radio"
+        />
+      </FormGroup>
+      <FormGroup check>
+        <Field
+          id="choice2"
+          name="choice"
+          labelText="Option two"
+          value="2"
+          type="radio"
+        />
+      </FormGroup>
+    </FormGroup>
+  </Formik>
+);
+
 export const Password = Template.bind({});
 Password.args = {
   labelText: 'Password',
@@ -223,6 +258,24 @@ export const SelectMultiple: ComponentStory<typeof Field> = ({ ...args }) => (
   </Formik>
 );
 
+export const CloseFields: ComponentStory<typeof Field> = () => (
+  <Formik
+    initialValues={{ firstName: '', lastName: '' }}
+    onSubmit={(values) => console.log(values)}
+  >
+    <Form>
+      <div>
+        <FormText>
+          To get closer fields, add &quot;removeBottomMargin&quot;
+        </FormText>
+      </div>
+      <Field id="firstName1" name="firstName" removeBottomMargin />
+      <Field id="lastName1" name="lastName" removeBottomMargin />
+      <FormText>Also useful for FormText components</FormText>
+    </Form>
+  </Formik>
+);
+
 export const SubmitWithLoading: ComponentStory<typeof Field> = ({
   ...args
 }) => (
@@ -237,7 +290,7 @@ export const SubmitWithLoading: ComponentStory<typeof Field> = ({
     }}
   >
     <Form>
-      <Field {...args} name="firstName" className="mb-3" withLoading />
+      <Field {...args} name="firstName" withLoading />
       <Button type="submit" color="success">
         Submit
       </Button>
