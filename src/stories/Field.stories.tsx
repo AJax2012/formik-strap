@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Form, Formik } from 'formik';
 import { Button, FormGroup, FormText, InputGroup } from 'reactstrap';
 import { v4 as uuid } from 'uuid';
+import * as Yup from 'yup';
 import Field from '../components/Field/Field';
 import Label from '../components/Label';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -258,24 +259,6 @@ export const SelectMultiple: ComponentStory<typeof Field> = ({ ...args }) => (
   </Formik>
 );
 
-export const CloseFields: ComponentStory<typeof Field> = () => (
-  <Formik
-    initialValues={{ firstName: '', lastName: '' }}
-    onSubmit={(values) => console.log(values)}
-  >
-    <Form>
-      <div>
-        <FormText>
-          To get closer fields, add &quot;removeBottomMargin&quot;
-        </FormText>
-      </div>
-      <Field id="firstName1" name="firstName" removeBottomMargin />
-      <Field id="lastName1" name="lastName" removeBottomMargin />
-      <FormText>Also useful for FormText components</FormText>
-    </Form>
-  </Formik>
-);
-
 export const SubmitWithLoading: ComponentStory<typeof Field> = ({
   ...args
 }) => (
@@ -297,6 +280,41 @@ export const SubmitWithLoading: ComponentStory<typeof Field> = ({
     </Form>
   </Formik>
 );
+
+export const Validation: ComponentStory<typeof Field> = () => {
+  const schema = Yup.object().shape({
+    email: Yup.string().email().required(),
+    username: Yup.string(),
+  });
+
+  return (
+    <Formik
+      initialValues={{ email: '', username: '' }}
+      onSubmit={(values, { setSubmitting }) => {
+        console.log('submitting...');
+        setTimeout(() => {
+          console.log(JSON.stringify(values, null, 2));
+          setSubmitting(false);
+        }, 3000);
+      }}
+      validationSchema={schema}
+    >
+      <Form>
+        <Field
+          name="email"
+          type="email"
+          id="emailValidation"
+          withLoading
+          required
+        />
+        <Field name="username" />
+        <Button type="submit" color="success">
+          Submit
+        </Button>
+      </Form>
+    </Formik>
+  );
+};
 
 export const CustomField: ComponentStory<typeof Field> = ({ ...args }) => (
   <Formik
