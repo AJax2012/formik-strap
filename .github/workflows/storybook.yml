@@ -12,7 +12,7 @@ jobs:
 
       - name: Install and Build
         run: |
-          npm ci
+          yarn ci
           yarn build-storybook
 
       - name: Deploy
