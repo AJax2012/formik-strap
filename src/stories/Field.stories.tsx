@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Form, Formik } from 'formik';
-import { Button, FormGroup, FormText, InputGroup } from 'reactstrap';
+import { Button, FormGroup, InputGroup } from 'reactstrap';
 import { v4 as uuid } from 'uuid';
 import * as Yup from 'yup';
 import Field from '../components/Field/Field';
@@ -149,24 +149,20 @@ export const MultipleRadio: ComponentStory<typeof Field> = () => (
   >
     <FormGroup tag="fieldset">
       <legend>Radio Buttons</legend>
-      <FormGroup check>
-        <Field
-          id="choice1"
-          name="choice"
-          labelText="Option one"
-          value="1"
-          type="radio"
-        />
-      </FormGroup>
-      <FormGroup check>
-        <Field
-          id="choice2"
-          name="choice"
-          labelText="Option two"
-          value="2"
-          type="radio"
-        />
-      </FormGroup>
+      <Field
+        id="choice1"
+        name="choice"
+        labelText="Option one"
+        value="1"
+        type="radio"
+      />
+      <Field
+        id="choice2"
+        name="choice"
+        labelText="Option two"
+        value="2"
+        type="radio"
+      />
     </FormGroup>
   </Formik>
 );
