@@ -1,13 +1,19 @@
 {
   "name": "formik-strap",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Refreshed library to use formik with reactstrap and TypeScript",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/formik-strap.esm.js",
   "author": "Adam Gardner",
+  "email": "adga2012@gmail.com",
   "license": "MIT",
   "private": false,
+  "homepage": "https://ajax2012.github.io/formik-strap",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AJax2012/formik-strap.git"
+  },
   "files": [
     "dist",
     "src"
@@ -78,6 +84,7 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.4.0",
     "typescript": "^4.7.3",
+    "uuid": "^8.3.2",
     "yup": "^0.32.11"
   },
   "peerDependencies": {
@@ -89,8 +96,5 @@
   },
   "engines": {
     "node": ">=12"
-  },
-  "dependencies": {
-    "uuid": "^8.3.2"
   }
 }
