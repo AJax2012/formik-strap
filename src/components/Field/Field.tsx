@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   ErrorMessageProps,
   Field as FormikField,
@@ -28,11 +28,13 @@ const Field: React.FC<FieldProps> = ({
 }) => {
   const { isSubmitting } = useFormikContext();
 
-  let disabled = isSubmitting && withLoading;
+  const disabled = useMemo(() => {
+    if (props.disabled) {
+      return true;
+    }
 
-  if (props.disabled) {
-    disabled = true;
-  }
+    return isSubmitting && withLoading;
+  }, [isSubmitting, withLoading, props.disabled]);
 
   const inputId = props.id ?? props.name;
   const label =
