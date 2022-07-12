@@ -19,6 +19,7 @@ type FieldProps = Partial<FieldInputProps<string | number>> &
   };
 
 const Field: React.FC<FieldProps> = ({
+  disabled,
   errorMessageProps,
   labelProps,
   labelText,
@@ -28,13 +29,13 @@ const Field: React.FC<FieldProps> = ({
 }) => {
   const { isSubmitting } = useFormikContext();
 
-  const disabled = useMemo(() => {
-    if (props.disabled) {
+  const isDisabled = useMemo(() => {
+    if (disabled) {
       return true;
     }
 
     return isSubmitting && withLoading;
-  }, [isSubmitting, withLoading, props.disabled]);
+  }, [isSubmitting, withLoading, disabled]);
 
   const inputId = props.id ?? props.name;
   const label =
@@ -54,14 +55,14 @@ const Field: React.FC<FieldProps> = ({
           labelText={label}
           errorMessageProps={errorMessageProps}
           {...props}
-          disabled={disabled}
+          disabled={isDisabled}
         />
       ) : (
         <FormikField
           id={props.id}
           name={props.name}
           component={Input}
-          disabled={disabled}
+          disabled={isDisabled}
           props={props}
         />
       )}

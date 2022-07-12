@@ -1,5 +1,5 @@
 import { useFormikContext } from 'formik';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Button, ButtonProps, Spinner } from 'reactstrap';
 
 type SubmitProps = ButtonProps & {
@@ -8,19 +8,23 @@ type SubmitProps = ButtonProps & {
 };
 
 const Submit: React.FC<SubmitProps> = ({
+  disabled,
   withLoading,
   withSpinner,
   ...props
 }) => {
   const { isSubmitting } = useFormikContext();
-  let disabled = withLoading && isSubmitting;
 
-  if (props.disabled) {
-    disabled = true;
-  }
+  const isDisabled = useMemo(() => {
+    if (disabled) {
+      return true;
+    }
+
+    return withLoading && isSubmitting;
+  }, [disabled, withLoading, isSubmitting]);
 
   return (
-    <Button type="submit" {...props} disabled={disabled}>
+    <Button type="submit" {...props} disabled={isDisabled}>
       {withSpinner && isSubmitting && <Spinner size="sm" className="me-2" />}
       {props.children}
     </Button>
