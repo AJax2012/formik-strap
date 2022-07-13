@@ -2,7 +2,7 @@
 
 This library is intended to be an updated version of tools like formstrap, which combine reactstrap styles and components with the utilities of formik. This library currently uses reactstrap 9.1.1 (bootstrap v5.1.1) and formik v2.2.9. This library is built on TypeScript and carries over all of the properties of formik and reactstrap inputs.
 
-I've created an example [GitHub repo](https://github.com/AJax2012/formik-strap-example), which is linked to a [codesandbox example](https://codesandbox.io/s/github/AJax2012/formik-strap-example).
+I've created an example [GitHub repo](https://github.com/AJax2012/formik-strap-example), which is linked to a [codesandbox example](https://codesandbox.io/s/formik-strap-example-fj125y).
 
 ## Installation
 
