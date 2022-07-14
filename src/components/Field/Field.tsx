@@ -23,8 +23,8 @@ const Field: React.FC<FieldProps> = ({
   errorMessageProps,
   labelProps,
   labelText,
-  withTemplate,
   withLoading,
+  withTemplate,
   ...props
 }) => {
   const { isSubmitting } = useFormikContext();
@@ -62,8 +62,8 @@ const Field: React.FC<FieldProps> = ({
           id={props.id}
           name={props.name}
           component={Input}
-          disabled={isDisabled}
           props={props}
+          disabled={isDisabled}
         />
       )}
     </>

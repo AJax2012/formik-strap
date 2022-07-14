@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Form, Formik } from 'formik';
-import { Button, FormGroup, InputGroup } from 'reactstrap';
+import { ErrorMessage, Form, Formik } from 'formik';
+import { Button, FormFeedback, FormGroup, InputGroup } from 'reactstrap';
 import { v4 as uuid } from 'uuid';
 import * as Yup from 'yup';
 import Field from '../components/Field/Field';
@@ -351,4 +351,26 @@ export const CustomDisabledField = CustomTemplate.bind({});
 CustomDisabledField.args = {
   withTemplate: false,
   disabled: true,
+};
+
+export const CustomFieldWithValidation: ComponentStory<typeof Field> = () => {
+  const schema = Yup.object().shape({
+    firstName: Yup.string().required(),
+  });
+
+  return (
+    <Formik
+      validationSchema={schema}
+      initialValues={{ firstName: '' }}
+      onSubmit={(values) => console.log(values)}
+    >
+      <FormGroup>
+        <Label for="firstName">First Name</Label>
+        <FormGroup>
+          <Field name="firstName" withTemplate={false} />
+          <ErrorMessage component={FormFeedback} name="firstName" />
+        </FormGroup>
+      </FormGroup>
+    </Formik>
+  );
 };
