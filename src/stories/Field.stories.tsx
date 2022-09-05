@@ -1,12 +1,15 @@
-import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ErrorMessage, Form, Formik } from 'formik';
-import { Button, FormFeedback, FormGroup, InputGroup } from 'reactstrap';
-import { v4 as uuid } from 'uuid';
-import * as Yup from 'yup';
-import Field from '../components/Field/Field';
-import Label from '../components/Label';
-import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.css";
+
+import { ErrorMessage, Form, Formik } from "formik";
+import React from "react";
+import { Button, FormFeedback, FormGroup, InputGroup } from "reactstrap";
+import { v4 as uuid } from "uuid";
+import * as Yup from "yup";
+
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+
+import Field from "../components/Field/Field";
+import Label from "../components/Label";
 
 export default {
   title: 'Field',
@@ -355,7 +358,7 @@ CustomDisabledField.args = {
 
 export const CustomFieldWithValidation: ComponentStory<typeof Field> = () => {
   const schema = Yup.object().shape({
-    firstName: Yup.string().required(),
+    firstName: Yup.string().required('First Name is a required field'),
   });
 
   return (
