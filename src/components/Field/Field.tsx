@@ -1,13 +1,9 @@
-import React, { useMemo } from 'react';
-import {
-  ErrorMessageProps,
-  Field as FormikField,
-  FieldInputProps,
-  useFormikContext,
-} from 'formik';
-import { InputProps, LabelProps } from 'reactstrap';
-import Input from './Input';
-import SimpleField from './SimpleField';
+import { ErrorMessageProps, Field as FormikField, FieldInputProps, useFormikContext } from "formik";
+import React, { useMemo } from "react";
+import { InputProps, LabelProps } from "reactstrap";
+
+import Input from "./Input";
+import SimpleField from "./SimpleField";
 
 type FieldProps = Partial<FieldInputProps<string | number>> &
   InputProps & {
@@ -46,6 +42,8 @@ const Field: React.FC<FieldProps> = ({
     ...labelProps,
   };
 
+  props = { ...props, disabled: isDisabled, 'aria-disabled': isDisabled };
+
   return (
     <>
       {withTemplate ? (
@@ -55,7 +53,6 @@ const Field: React.FC<FieldProps> = ({
           labelText={label}
           errorMessageProps={errorMessageProps}
           {...props}
-          disabled={isDisabled}
         />
       ) : (
         <FormikField
@@ -63,7 +60,6 @@ const Field: React.FC<FieldProps> = ({
           name={props.name}
           component={Input}
           props={props}
-          disabled={isDisabled}
         />
       )}
     </>
