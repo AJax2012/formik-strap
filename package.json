@@ -76,7 +76,7 @@
     "prettier": "^2.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "reactstrap": "^9.1.1",
+    "reactstrap": "^9.1.4",
     "rollup-plugin-postcss": "^4.0.2",
     "tsdx": "^0.14.1",
     "tslib": "^2.4.0",
