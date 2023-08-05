@@ -20,7 +20,7 @@ The basic usage is similar to how you would normally use formik:
 
 ```javascript
 import React from 'react';
-import { Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import { Field, Submit } from 'formik-strap';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -29,9 +29,11 @@ const App = () => (
     initialValues={{ firstName: '' }}
     onSubmit={(values) => console.log(values)}
   >
-    {*/ this will print the label as First Name */}
-    <Field name="firstName" />
-    <Submit withSpinner>Submit</Submit>
+    <Form>
+      {*/ this will print the label as First Name */}
+      <Field name="firstName" />
+      <Submit withSpinner>Submit</Submit>
+    </Form>
   <Formik>
 );
 ```
@@ -49,12 +51,10 @@ const App = () => (
     initialValues={{ terms: false }}
     onSubmit={(values) => console.log(values)}
   >
-    {({ values }) => {
-      <Form>
-        <Field type="checkbox" name="terms" />
-        <Submit withSpinner>Submit</Submit>
-      </Form>
-    }}
+    <Form>
+      <Field type="checkbox" name="terms" />
+      <Submit withSpinner>Submit</Submit>
+    </Form>
   <Formik>
 );
 ```
@@ -63,8 +63,8 @@ You may also completely customize how your input is displayed by setting the wit
 
 ```javascript
 import React from 'react';
-import { Formik } from 'formik';
-import { Field } from 'formik-strap';
+import { Form, Formik } from 'formik';
+import { Field, Submit } from 'formik-strap';
 import { FormGroup, InputGroup, Label } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -73,17 +73,19 @@ const App = () => (
     initialValues={{ username: '' }}
     onSubmit={(values) => console.log(values)}
   >
-    <FormGroup>
-      <Label for="username">Username</Label>
-      <InputGroup>
-        <span className="input-group-text">@</span>
+    <Form>
+      <FormGroup>
+        <Label for="username">Username</Label>
+        <InputGroup>
+          <span className="input-group-text">@</span>
 
-        {*/ Note: this will remove the label */}
-        <Field name="firstName" withTemplate={false} />
+          {*/ Note: this will remove the label */}
+          <Field name="firstName" withTemplate={false} />
 
-      </InputGroup>
-    </FormGroup>
-    <Submit withSpinner>Submit</Submit>
+        </InputGroup>
+      </FormGroup>
+      <Submit withSpinner>Submit</Submit>
+    </Form>
   <Formik>
 );
 ```
