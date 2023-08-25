@@ -6,7 +6,6 @@
   "typings": "dist/index.d.ts",
   "module": "dist/formik-strap.esm.js",
   "author": "Adam Gardner",
-  "email": "adga2012@gmail.com",
   "license": "MIT",
   "private": false,
   "homepage": "https://ajax2012.github.io/formik-strap",
