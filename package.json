@@ -1,6 +1,6 @@
 {
   "name": "formik-strap",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Refreshed library to use formik with reactstrap and TypeScript",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
