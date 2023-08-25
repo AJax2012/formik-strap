@@ -96,6 +96,9 @@
     "react-dom": "^18.2.0",
     "reactstrap": "^9.1.1"
   },
+  "resolutions": {
+    "jackspeak": "2.1.1"
+  },
   "engines": {
     "node": ">=12"
   }
