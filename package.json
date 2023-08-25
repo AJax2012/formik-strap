@@ -6,7 +6,6 @@
   "typings": "dist/index.d.ts",
   "module": "dist/formik-strap.esm.js",
   "author": "Adam Gardner",
-  "email": "adga2012@gmail.com",
   "license": "MIT",
   "private": false,
   "homepage": "https://ajax2012.github.io/formik-strap",
@@ -21,11 +20,11 @@
   "scripts": {
     "analyze": "size-limit --why",
     "build": "tsdx build",
-    "build-storybook": "build-storybook -o docs-build",
+    "build-storybook": "storybook build -o docs-build",
     "clean": "rm -rf dist",
     "lint": "eslint .",
     "prepublish": "tsdx build",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "storybook dev -p 6006",
     "tsc": "tsc"
   },
   "husky": {
@@ -44,17 +43,20 @@
     }
   ],
   "devDependencies": {
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
     "@popperjs/core": "^2.10.2",
+    "@rollup/plugin-replace": "^5.0.2",
     "@size-limit/preset-small-lib": "^7.0.8",
-    "@storybook/addon-actions": "^6.5.10",
-    "@storybook/addon-docs": "^6.5.10",
-    "@storybook/addon-essentials": "^6.5.10",
-    "@storybook/addon-interactions": "^6.5.10",
-    "@storybook/addon-links": "^6.5.10",
-    "@storybook/builder-webpack4": "^6.5.10",
-    "@storybook/manager-webpack4": "^6.5.10",
-    "@storybook/react": "^6.5.10",
-    "@storybook/testing-library": "^0.0.13",
+    "@storybook/addon-actions": "^7.2.1",
+    "@storybook/addon-docs": "^7.2.1",
+    "@storybook/addon-essentials": "^7.2.1",
+    "@storybook/addon-interactions": "^7.2.1",
+    "@storybook/addon-links": "^7.2.1",
+    "@storybook/react": "^7.2.1",
+    "@storybook/react-webpack5": "^7.2.1",
+    "@storybook/testing-library": "^0.2.0",
     "@types/react": "^18.0.12",
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
@@ -70,7 +72,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-storybook": "^0.6.4",
+    "eslint-plugin-storybook": "^0.6.13",
     "formik": "^2.2.9",
     "husky": "^8.0.1",
     "postcss": "^8.4.14",
@@ -78,7 +80,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "reactstrap": "^9.1.4",
+    "rollup": "^3.28.1",
     "rollup-plugin-postcss": "^4.0.2",
+    "storybook": "^7.2.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.4.0",
     "typescript": "^4.7.3",
@@ -91,6 +95,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "reactstrap": "^9.1.1"
+  },
+  "resolutions": {
+    "jackspeak": "2.1.1"
   },
   "engines": {
     "node": ">=12"

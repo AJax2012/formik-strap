@@ -1,6 +1,8 @@
-const postcss = require('rollup-plugin-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
+const postcss = require('rollup-plugin-postcss');
+const replace = require('@rollup/plugin-replace');
+
 
 module.exports = {
   rollup(config, options) {
@@ -17,6 +19,14 @@ module.exports = {
         extract: !!options.writeMeta,
       })
     );
+
+    config.plugins.push(
+      replace({
+        'process.env.NODE_ENV': JSON.stringify(options.env),
+        preventAssignment: true,
+      })
+    );
+
     return config;
   },
 };
