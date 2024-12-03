@@ -1,6 +1,6 @@
 {
   "name": "formik-strap",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "description": "Refreshed library to use formik with reactstrap and TypeScript",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -102,9 +102,6 @@
     "jackspeak": "3.1.2"
   },
   "engines": {
-    "node": ">=12"
-  },
-  "dependencies": {
-    "jackspeak": "4.0.2"
+    "node": ">=18"
   }
 }
