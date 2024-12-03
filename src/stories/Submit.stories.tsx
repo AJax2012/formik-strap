@@ -1,11 +1,11 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Submit from '../components/Submit/Submit';
-import 'bootstrap/dist/css/bootstrap.css';
+import { Meta, StoryObj } from '@storybook/react';
 import { Form, Formik } from 'formik';
 import Field from '../components/Field';
+import Submit from '../components/Submit';
+import 'bootstrap/dist/css/bootstrap.css';
 
-export default {
+const meta: Meta<typeof Submit> = {
   title: 'Submit',
   component: Submit,
   argTypes: {
@@ -33,76 +33,101 @@ export default {
   args: {
     children: 'Submit',
   },
-} as ComponentMeta<typeof Submit>;
-
-const Template: ComponentStory<typeof Submit> = ({ ...args }) => (
-  <Formik
-    initialValues={{ field: '' }}
-    onSubmit={(values, { setSubmitting }) => {
-      console.log('submitting...');
-      setTimeout(() => {
-        console.log(JSON.stringify(values, null, 2));
-        setSubmitting(false);
-      }, 3000);
-    }}
-  >
-    <Form>
-      <Field name="field" hidden withTemplate={false} />
-      <Submit {...args} />
-    </Form>
-  </Formik>
-);
-
-export const Basic = Template.bind({});
-
-export const WithLoading = Template.bind({});
-WithLoading.args = {
-  withLoading: true,
 };
 
-export const WithSpinner = Template.bind({});
-WithSpinner.args = {
-  withLoading: false,
-  withSpinner: true,
+export default meta;
+type Story = StoryObj<typeof Submit>;
+
+const Template: Story = {
+  render: ({ ...args }) => (
+    <Formik
+      initialValues={{ field: '' }}
+      onSubmit={(values, { setSubmitting }) => {
+        console.log('submitting...');
+        setTimeout(() => {
+          console.log(JSON.stringify(values, null, 2));
+          setSubmitting(false);
+        }, 3000);
+      }}
+    >
+      <Form>
+        <Field name="field" hidden withTemplate={false} />
+        <Submit {...args} />
+      </Form>
+    </Formik>
+  )
 };
 
-export const WithLoadingAndSpinner = Template.bind({});
-WithLoadingAndSpinner.args = {
-  withLoading: true,
-  withSpinner: true,
+export const Basic: Story = { ...Template, };
+
+export const WithLoading: Story = {
+  ...Template,
+  args: {
+    withLoading: true,
+  }
 };
 
-export const Green = Template.bind({});
-Green.args = {
-  color: 'success',
+export const WithSpinner: Story = {
+  ...Template,
+  args: {
+    withLoading: false,
+    withSpinner: true,
+  }
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'lg',
+export const WithLoadingAndSpinner: Story = {
+  ...Template,
+  args: {
+    withLoading: true,
+    withSpinner: true,
+  }
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  size: 'sm',
+export const Green: Story = {
+  ...Template,
+  args: {
+    color: 'success',
+  }
 };
 
-export const Active = Template.bind({});
-Active.args = {
-  active: true,
+export const Large: Story = {
+  ...Template,
+  args: {
+    size: 'lg',
+  }
 };
 
-export const Block = Template.bind({});
-Block.args = {
-  block: true,
+export const Small: Story = {
+  ...Template,
+  args: {
+    size: 'sm',
+  }
 };
 
-export const Outline = Template.bind({});
-Outline.args = {
-  outline: true,
+export const Active: Story = {
+  ...Template,
+  args: {
+    active: true,
+  }
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
+export const Block: Story = {
+  ...Template,
+  args: {
+    block: true,
+  }
+};
+
+export const Outline: Story = {
+  ...Template,
+  args: {
+    outline: true,
+  }
+};
+
+export const Disabled: Story = {
+  ...Template,
+  args: {
+    disabled: true,
+  }
 };

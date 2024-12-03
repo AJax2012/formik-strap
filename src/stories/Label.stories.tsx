@@ -1,43 +1,58 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Label from '../components/Label/Label';
+import { Meta, StoryObj } from '@storybook/react';
+import Label from '../components/Label';
 import 'bootstrap/dist/css/bootstrap.css';
 
-export default {
+const meta: Meta<typeof Label> = {
   title: 'Label',
   component: Label,
   args: {
     children: 'label text',
   },
-} as ComponentMeta<typeof Label>;
-
-const Template: ComponentStory<typeof Label> = ({ ...args }) => (
-  <Label {...args}>{args.children}</Label>
-);
-
-export const Basic = Template.bind({});
-
-export const Stylized = Template.bind({});
-Stylized.args = {
-  className: 'text-danger fw-bold',
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'lg',
+export default meta;
+type Story = StoryObj<typeof Label>;
+
+const Template: Story = {
+  render: ({ ...args }) => (
+    <Label {...args}>{args.children}</Label>
+  )
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  size: 'sm',
+export const Basic: Story = { ...Template };
+
+export const Stylized: Story = {
+  ...Template,
+  args: {
+    className: 'text-danger fw-bold',
+  }
 };
 
-export const Required = Template.bind({});
-Required.args = {
-  className: 'required',
+export const Large: Story = {
+  ...Template,
+  args: {
+    size: 'lg',
+  }
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
+export const Small: Story = {
+  ...Template,
+  args: {
+    size: 'sm',
+  }
+};
+
+export const Required: Story = {
+  ...Template,
+  args: {
+    className: 'required',
+  }
+};
+
+export const Disabled: Story = {
+  ...Template,
+  args: {
+    disabled: true,
+  }
 };

@@ -1,0 +1,4 @@
+packageExtensions:
+  '@storybook/test-runner@*':
+    peerDependencies:
+      storybook: ">=8"
